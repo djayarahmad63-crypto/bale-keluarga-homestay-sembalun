@@ -8,7 +8,7 @@
   <title>Bale Keluarga Homestay Sembalun | Penginapan Hangat Pemandangan Rinjani</title>
   <meta name="title" content="Bale Keluarga Homestay Sembalun | Penginapan Hangat Pemandangan Rinjani">
   <meta name="description" content="Menginap nyaman serasa di rumah sendiri di Bale Keluarga Homestay Sembalun, Lombok Timur. Kamar berair panas 24 jam, pemandangan Gunung Rinjani & Bukit Pergasingan, kebun stroberi, serta paket wisata pendakian.">
-  <meta name="keywords" content="homestay sembalun, penginapan sembalun lombok, bale keluarga sembalun, hotel murah sembalun, homestay view rinjani, sewa kamar sembalun, penginapan pergasingan">
+  <meta name="keywords" content="homestay sembalun, penginapan sembalun lombok, bale keluarga sembalun, hotel murah sembalun, homestay view rinjani, sewa homestay sembalun, penginapan pergasingan">
   <meta name="author" content="Bale Keluarga Homestay Sembalun">
   
   <!-- Canonical & SEO Domain -->
@@ -18,7 +18,7 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.penginapansembalun.my.id/">
   <meta property="og:title" content="Bale Keluarga Homestay Sembalun | Pemandangan Megah Gunung Rinjani">
-  <meta property="og:description" content="Nikmati hangatnya keramahan khas Sasak di bawah sejuknya hawa Sembalun. Kamar keluarga dengan water heater, view Rinjani langsung, dan kebun stroberi.">
+  <meta property="og:description" content="Nikmati hangatnya keramahan khas Sasak di bawah sejuknya hawa Sembalun. Homestay keluarga dengan water heater, view Rinjani langsung, dan kebun stroberi.">
   <meta property="og:image" content="https://www.penginapansembalun.my.id/images/hero.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -27,7 +27,7 @@
   <link rel="icon" type="image/png" href="images/logo.png">
   
   <!-- CSS Stylesheet -->
-  <link rel="stylesheet" href="styles.css?v=3.0">
+  <link rel="stylesheet" href="styles.css?v=3.1">
 
   <!-- Schema.org Structured Data for Local SEO -->
   <script type="application/ld+json">
@@ -52,8 +52,8 @@
       "latitude": -8.3592,
       "longitude": 116.5298
     },
-    "priceRange": "Rp 300.000 - Rp 750.000",
-    "telephone": "+6281234567890",
+    "priceRange": "Rp 350.000",
+    "telephone": "+6285801112024",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
@@ -65,7 +65,7 @@
 <body>
 
   <!-- ==========================================================================
-       HEADER & NAVIGATION
+       HEADER & NAVIGATION (FLOATING PILL ISLAND)
        ========================================================================== -->
   <header class="site-header" id="siteHeader">
     <div class="nav-container">
@@ -77,11 +77,10 @@
         </div>
       </a>
 
-      <!-- Desktop Navigation Links -->
+      <!-- Desktop Navigation Links (Menu Tipe Kamar Dihilangkan) -->
       <nav aria-label="Main Navigation">
         <ul class="nav-links">
           <li><a href="#tentang" class="nav-link">Tentang Kami</a></li>
-          <li><a href="#kamar" class="nav-link">Pilihan Kamar</a></li>
           <li><a href="#fasilitas" class="nav-link">Fasilitas</a></li>
           <li><a href="#wisata" class="nav-link">Wisata Sembalun</a></li>
           <li><a href="#galeri" class="nav-link">Galeri</a></li>
@@ -113,7 +112,7 @@
         <div class="hero-content">
           <div class="hero-badge">
             <span class="star-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
-            <span>4.9/5 Rating Terverifikasi (140+ Ulasan)</span>
+            <span id="heroBadgeText">4.9/5 Rating Terverifikasi (140+ Ulasan)</span>
           </div>
           <h1 class="hero-title">Kehangatan Rumah Keluarga di <span>Kaki Gunung Rinjani</span></h1>
           <p class="hero-description">
@@ -122,11 +121,11 @@
 
           <div class="hero-cta-group">
             <a href="#reservasi" class="btn-primary-hero" id="heroBookingCta">
-              Pesan Kamar Langsung
+              <span id="heroCtaTextLabel">Pesan Homestay Langsung</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
             </a>
-            <a href="#kamar" class="btn-secondary-hero" id="heroExploreRooms">
-              Lihat Tipe Kamar
+            <a href="#fasilitas" class="btn-secondary-hero" id="heroExploreFacilities">
+              <span id="heroCta2TextLabel">Lihat Fasilitas</span>
             </a>
           </div>
 
@@ -174,18 +173,6 @@
               Check-Out
             </label>
             <input type="date" id="hero-checkout" class="form-control" required>
-          </div>
-
-          <div class="form-group">
-            <label for="hero-room-type" class="form-label">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
-              Tipe Kamar
-            </label>
-            <select id="hero-room-type" class="form-control">
-              <option value="deluxe">Deluxe Rinjani View</option>
-              <option value="family">Family Suite Bale</option>
-              <option value="standard">Standard Cozy Room</option>
-            </select>
           </div>
 
           <div class="form-group">
@@ -241,152 +228,26 @@
             <div class="features-bullet-list">
               <div class="feature-bullet">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Air Panas 24 Jam Tekanan Kuat</span>
+                <span id="aboutBullet1">Air Panas 24 Jam Tekanan Kuat</span>
               </div>
               <div class="feature-bullet">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>5 Menit ke Bukit Pergasingan</span>
+                <span id="aboutBullet2">5 Menit ke Bukit Pergasingan</span>
               </div>
               <div class="feature-bullet">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Kebun Stroberi Petik Sendiri</span>
+                <span id="aboutBullet3">Kebun Stroberi Petik Sendiri</span>
               </div>
               <div class="feature-bullet">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                <span>Parkir Mobil & Motor Luas</span>
+                <span id="aboutBullet4">Parkir Mobil & Motor Luas</span>
               </div>
             </div>
 
-            <a href="#kamar" class="btn-select-room" style="display:inline-block; padding: 14px 28px; width:auto;">
-              Eksplorasi Pilihan Kamar
+            <a href="#reservasi" class="btn-select-room" style="display:inline-block; padding: 14px 28px; width:auto;">
+              Reservasi Homestay Sekarang
             </a>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ==========================================================================
-         ROOMS CATALOG SECTION
-         ========================================================================== -->
-    <section class="rooms-section" id="kamar">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Akomodasi Nyaman</span>
-          <h2 class="section-title">Pilihan Kamar Hangat & Asri</h2>
-          <p class="section-subtitle">Setiap kamar dirancang dengan ventilasi udara segar pegunungan, tempat tidur premium, dan privasi penuh untuk istirahat terbaik Anda.</p>
-        </div>
-
-        <div class="rooms-grid">
-          <!-- Room Card 1: Deluxe Rinjani -->
-          <article class="room-card" id="cardRoomDeluxe">
-            <div class="room-thumb-wrapper">
-              <img src="images/room-deluxe.jpg" alt="Deluxe Rinjani View Room" class="room-thumb" loading="lazy">
-              <span class="room-badge">Best Mountain View</span>
-              <div class="room-price-tag">
-                <span>Rp 450.000</span> / malam
-              </div>
-            </div>
-            <div class="room-body">
-              <h3 class="room-title">Deluxe Rinjani View Room</h3>
-              <div class="room-meta">
-                <div class="room-meta-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
-                  2 Tamu (+ 1 Anak)
-                </div>
-                <div class="room-meta-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path></svg>
-                  1 King Bed
-                </div>
-              </div>
-              <p class="room-desc">
-                Jendela panorama kaca lebar menghadap puncak Gunung Rinjani. Nikmati pemandangan matahari terbit langsung dari ranjang empuk Anda.
-              </p>
-              <div class="room-amenities-tags">
-                <span class="amenity-tag">Water Heater</span>
-                <span class="amenity-tag">Balkon Pribadi</span>
-                <span class="amenity-tag">Sarapan 2 Porsi</span>
-                <span class="amenity-tag">Wi-Fi Cepat</span>
-              </div>
-              <div class="room-footer">
-                <button class="btn-select-room" data-room="deluxe">Pilih Kamar Ini</button>
-                <button class="btn-detail-room" data-room="deluxe" aria-label="Lihat detail Deluxe">Detail</button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Room Card 2: Family Suite -->
-          <article class="room-card" id="cardRoomFamily">
-            <div class="room-thumb-wrapper">
-              <img src="images/room-family.jpg" alt="Family Suite Bale Room" class="room-thumb" loading="lazy">
-              <span class="room-badge" style="background:var(--color-wood);">Favorit Keluarga</span>
-              <div class="room-price-tag">
-                <span>Rp 750.000</span> / malam
-              </div>
-            </div>
-            <div class="room-body">
-              <h3 class="room-title">Family Suite Bale Room</h3>
-              <div class="room-meta">
-                <div class="room-meta-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
-                  4 - 6 Tamu
-                </div>
-                <div class="room-meta-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path></svg>
-                  2 Queen Beds
-                </div>
-              </div>
-              <p class="room-desc">
-                Ruangan super luas dengan langit-langit tinggi kayu Sasak. Ideal untuk momen kumpul hangat keluarga atau rombongan pendakian.
-              </p>
-              <div class="room-amenities-tags">
-                <span class="amenity-tag">Water Heater</span>
-                <span class="amenity-tag">Dispenser Kamar</span>
-                <span class="amenity-tag">Balkon Kebun</span>
-                <span class="amenity-tag">Sarapan 4 Porsi</span>
-              </div>
-              <div class="room-footer">
-                <button class="btn-select-room" data-room="family">Pilih Kamar Ini</button>
-                <button class="btn-detail-room" data-room="family" aria-label="Lihat detail Family">Detail</button>
-              </div>
-            </div>
-          </article>
-
-          <!-- Room Card 3: Standard Cozy Room -->
-          <article class="room-card" id="cardRoomStandard">
-            <div class="room-thumb-wrapper">
-              <img src="images/hero.jpg" alt="Standard Cozy Room" class="room-thumb" loading="lazy">
-              <span class="room-badge" style="background:#4a6b51;">Best Value</span>
-              <div class="room-price-tag">
-                <span>Rp 300.000</span> / malam
-              </div>
-            </div>
-            <div class="room-body">
-              <h3 class="room-title">Standard Cozy Room</h3>
-              <div class="room-meta">
-                <div class="room-meta-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
-                  2 Tamu
-                </div>
-                <div class="room-meta-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path></svg>
-                  1 Queen Bed
-                </div>
-              </div>
-              <p class="room-desc">
-                Kenyamanan esensial yang bersih, hangat, dan higienis. Pilihan favorit backpacker dan pendaki yang mencari transit berkualitas tinggi.
-              </p>
-              <div class="room-amenities-tags">
-                <span class="amenity-tag">Water Heater</span>
-                <span class="amenity-tag">Wi-Fi Fiber</span>
-                <span class="amenity-tag">Sarapan 2 Porsi</span>
-                <span class="amenity-tag">Titip Tas Gratis</span>
-              </div>
-              <div class="room-footer">
-                <button class="btn-select-room" data-room="standard">Pilih Kamar Ini</button>
-                <button class="btn-detail-room" data-room="standard" aria-label="Lihat detail Standard">Detail</button>
-              </div>
-            </div>
-          </article>
         </div>
       </div>
     </section>
@@ -403,7 +264,7 @@
         </div>
 
         <div class="facilities-grid">
-          <!-- 1 -->
+          <!-- Populated dynamically via script.js -->
           <div class="facility-card">
             <div class="facility-icon-wrap">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
@@ -411,8 +272,6 @@
             <h3 class="facility-title">Air Panas 24 Jam</h3>
             <p class="facility-text">Mandi air panas bertekanan mantap kapan pun Anda butuh, menghalau dinginnya malam Sembalun.</p>
           </div>
-
-          <!-- 2 -->
           <div class="facility-card">
             <div class="facility-icon-wrap">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg>
@@ -420,8 +279,6 @@
             <h3 class="facility-title">High-Speed Wi-Fi</h3>
             <p class="facility-text">Koneksi internet fiber lancar untuk kebutuhan komunikasi, kerja jarak jauh, atau upload konten liburan.</p>
           </div>
-
-          <!-- 3 -->
           <div class="facility-card">
             <div class="facility-icon-wrap">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
@@ -429,50 +286,12 @@
             <h3 class="facility-title">Api Unggun & BBQ</h3>
             <p class="facility-text">Area lingkaran batu api unggun di bawah langit berbintang Sembalun, lengkap dengan peralatan memanggang.</p>
           </div>
-
-          <!-- 4 -->
           <div class="facility-card">
             <div class="facility-icon-wrap">
               <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
             </div>
             <h3 class="facility-title">Kebun Stroberi Sendiri</h3>
             <p class="facility-text">Tamu berkesempatan langsung memetik buah stroberi segar dan sayuran pegunungan di kebun homestay.</p>
-          </div>
-
-          <!-- 5 -->
-          <div class="facility-card">
-            <div class="facility-icon-wrap">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path></svg>
-            </div>
-            <h3 class="facility-title">Dapur Bersama Lengkap</h3>
-            <p class="facility-text">Kulkas, kompor gas, dan perlengkapan masak tersedia bebas digunakan untuk memasak santapan keluarga.</p>
-          </div>
-
-          <!-- 6 -->
-          <div class="facility-card">
-            <div class="facility-icon-wrap">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
-            </div>
-            <h3 class="facility-title">Parkir Luas & Aman</h3>
-            <p class="facility-text">Halaman parkir pribadi yang luas, mampu menampung rombongan mobil keluarga dan puluhan sepeda motor.</p>
-          </div>
-
-          <!-- 7 -->
-          <div class="facility-card">
-            <div class="facility-icon-wrap">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            </div>
-            <h3 class="facility-title">Sewa Motor & Alat Rinjani</h3>
-            <p class="facility-text">Rental motor matic bertenaga untuk berkeliling lembah, serta penyewaan tenda & sleeping bag tebal.</p>
-          </div>
-
-          <!-- 8 -->
-          <div class="facility-card">
-            <div class="facility-icon-wrap">
-              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 8h1a4 4 0 1 1 0 8h-1"></path><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"></path></svg>
-            </div>
-            <h3 class="facility-title">Kopi & Teh Gratis</h3>
-            <p class="facility-text">Selamat datang dengan secangkir kopi arabika asli Sembalun atau teh hangat khas kebun pegunungan.</p>
           </div>
         </div>
       </div>
@@ -490,59 +309,7 @@
         </div>
 
         <div class="experiences-grid">
-          <!-- Experience 1 -->
-          <div class="experience-card">
-            <div class="experience-img-wrap">
-              <img src="images/pergasingan.jpg" alt="Sunrise Bukit Pergasingan Sembalun" class="experience-img" loading="lazy">
-              <span class="experience-tag">Terpopuler</span>
-            </div>
-            <div class="experience-body">
-              <h3 class="experience-title">Paket Sunrise Bukit Pergasingan</h3>
-              <p class="experience-desc">Menyaksikan karpet sawah warna-warni Sembalun yang memesona bermandikan cahaya matahari emas dari puncak bukit.</p>
-              <ul class="experience-perks">
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Tiket masuk & Guide Lokal Ramah</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Sarapan & Kopi Hangat di Puncak</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Berangkat 04.30 langsung dari homestay</li>
-              </ul>
-              <a href="#reservasi" class="btn-book-exp">Booking dengan Kamar</a>
-            </div>
-          </div>
-
-          <!-- Experience 2 -->
-          <div class="experience-card">
-            <div class="experience-img-wrap">
-              <img src="images/strawberry.jpg" alt="Petik Stroberi Sembalun" class="experience-img" loading="lazy">
-              <span class="experience-tag">Favorit Anak</span>
-            </div>
-            <div class="experience-body">
-              <h3 class="experience-title">Petik Stroberi & Tur Desa Adat</h3>
-              <p class="experience-desc">Kegiatan edukasi seru untuk keluarga. Memetik stroberi manis langsung dari pohon dan mengunjungi rumah adat tertua Beleq.</p>
-              <ul class="experience-perks">
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Keranjang Petik & Stroberi Segar</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Tur Budaya Desa Beleq 7 Rumah</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Spot Foto Menawan Tanpa Antri</li>
-              </ul>
-              <a href="#reservasi" class="btn-book-exp">Booking dengan Kamar</a>
-            </div>
-          </div>
-
-          <!-- Experience 3 -->
-          <div class="experience-card">
-            <div class="experience-img-wrap">
-              <img src="images/bonfire.jpg" alt="Malam Api Unggun & BBQ Sembalun" class="experience-img" loading="lazy">
-              <span class="experience-tag">Suasana Hangat</span>
-            </div>
-            <div class="experience-body">
-              <h3 class="experience-title">Malam Api Unggun & BBQ Set</h3>
-              <p class="experience-desc">Malam syahdu menghangatkan badan di sekeliling api unggun batu dengan jagung bakar atau sate ayam khas Lombok.</p>
-              <ul class="experience-perks">
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Kayu Bakar Berkualitas & Pemantik</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Panggangan BBQ & Alat Lengkap</li>
-                <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> Selimut Hangat & Teh Jahe Rempah</li>
-              </ul>
-              <a href="#reservasi" class="btn-book-exp">Booking dengan Kamar</a>
-            </div>
-          </div>
+          <!-- Populated dynamically via script.js -->
         </div>
       </div>
     </section>
@@ -560,65 +327,13 @@
 
         <div class="gallery-filters">
           <button class="gallery-filter-btn active" data-filter="all">Semua Foto</button>
-          <button class="gallery-filter-btn" data-filter="kamar">Kamar</button>
           <button class="gallery-filter-btn" data-filter="pemandangan">Pemandangan</button>
           <button class="gallery-filter-btn" data-filter="aktivitas">Aktivitas</button>
+          <button class="gallery-filter-btn" data-filter="kamar">Suasana</button>
         </div>
 
         <div class="gallery-grid">
-          <!-- Item 1: Hero view (span 2) -->
-          <div class="gallery-item span-2" data-category="pemandangan">
-            <img src="images/hero.jpg" alt="Panorama Bale Keluarga dan Gunung Rinjani" loading="lazy">
-            <div class="gallery-item-overlay">
-              <span class="gallery-caption-title">Panorama Pagi Bale Keluarga & Rinjani</span>
-              <span class="gallery-caption-sub">Pemandangan langsung dari halaman homestay</span>
-            </div>
-          </div>
-
-          <!-- Item 2: Deluxe room -->
-          <div class="gallery-item" data-category="kamar">
-            <img src="images/room-deluxe.jpg" alt="Kamar Deluxe Rinjani View" loading="lazy">
-            <div class="gallery-item-overlay">
-              <span class="gallery-caption-title">Deluxe Room Panorama</span>
-              <span class="gallery-caption-sub">Kamar tidur bernuansa kayu hangat</span>
-            </div>
-          </div>
-
-          <!-- Item 3: Pergasingan view -->
-          <div class="gallery-item" data-category="pemandangan">
-            <img src="images/pergasingan.jpg" alt="Puncak Bukit Pergasingan" loading="lazy">
-            <div class="gallery-item-overlay">
-              <span class="gallery-caption-title">Bukit Pergasingan</span>
-              <span class="gallery-caption-sub">Hanya 5 menit berkendara dari homestay</span>
-            </div>
-          </div>
-
-          <!-- Item 4: Family suite -->
-          <div class="gallery-item" data-category="kamar">
-            <img src="images/room-family.jpg" alt="Family Suite Bale" loading="lazy">
-            <div class="gallery-item-overlay">
-              <span class="gallery-caption-title">Family Suite Bale Room</span>
-              <span class="gallery-caption-sub">2 ranjang queen luas untuk keluarga</span>
-            </div>
-          </div>
-
-          <!-- Item 5: Bonfire gathering -->
-          <div class="gallery-item" data-category="aktivitas">
-            <img src="images/bonfire.jpg" alt="Malam Api Unggun Bersama" loading="lazy">
-            <div class="gallery-item-overlay">
-              <span class="gallery-caption-title">Lingkaran Api Unggun Malam</span>
-              <span class="gallery-caption-sub">Hangatnya kebersamaan keluarga</span>
-            </div>
-          </div>
-
-          <!-- Item 6: Strawberry field (span 2) -->
-          <div class="gallery-item span-2" data-category="aktivitas">
-            <img src="images/strawberry.jpg" alt="Kebun Stroberi Sembalun" loading="lazy">
-            <div class="gallery-item-overlay">
-              <span class="gallery-caption-title">Kebun Stroberi Pribadi</span>
-              <span class="gallery-caption-sub">Pengalaman petik langsung buah segar</span>
-            </div>
-          </div>
+          <!-- Populated dynamically via script.js -->
         </div>
       </div>
     </section>
@@ -638,7 +353,7 @@
           <!-- Form Left -->
           <div class="calc-form-side">
             <h3>Rencanakan Menginap Anda</h3>
-            <p>Silakan sesuaikan tanggal, pilihan tipe kamar, dan paket tambahan sesuai rencana liburan Anda.</p>
+            <p>Silakan tentukan tanggal menginap, jumlah rombongan, dan paket aktivitas tambahan sesuai rencana Anda.</p>
 
             <div class="calc-grid">
               <div class="calc-group">
@@ -651,21 +366,26 @@
                 <input type="date" id="calc-checkout" class="calc-input">
               </div>
 
-              <div class="calc-group">
-                <label for="calc-room" class="calc-label">Pilihan Kamar</label>
-                <select id="calc-room" class="calc-select">
-                  <option value="deluxe">Deluxe Rinjani View (Rp 450.000)</option>
-                  <option value="family">Family Suite Bale (Rp 750.000)</option>
-                  <option value="standard">Standard Cozy Room (Rp 300.000)</option>
-                </select>
+              <!-- Homestay Unit Card -->
+              <div class="calc-group" style="grid-column: 1 / -1;">
+                <label class="calc-label">Paket Sewa Homestay</label>
+                <div style="background: rgba(22, 17, 31, 0.04); border: 1.5px solid #cbd5e1; border-radius: 12px; padding: 14px 18px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;">
+                  <div>
+                    <strong style="color: var(--color-primary-dark); font-size: 1.05rem;" id="calcHomestayTitle">Bale Keluarga Homestay (Satu Rumah Penuh)</strong>
+                    <div style="font-size: 0.84rem; color: #64748b;" id="calcHomestaySub">Kapasitas Keluarga & Rombongan • Water Heater 24 Jam • View Rinjani</div>
+                  </div>
+                  <div style="font-size: 1.25rem; font-weight: 800; color: var(--color-gold);">
+                    <span id="calcHomestayRate">Rp 350.000</span> <span style="font-size: 0.85rem; font-weight: 600; color: #64748b;">/ malam</span>
+                  </div>
+                </div>
               </div>
 
-              <div class="calc-group">
+              <div class="calc-group" style="grid-column: 1 / -1;">
                 <label for="calc-guests" class="calc-label">Jumlah Tamu</label>
                 <select id="calc-guests" class="calc-select">
                   <option value="2 Orang">2 Orang</option>
                   <option value="3-4 Orang">3 - 4 Orang</option>
-                  <option value="5-6 Orang">5 - 6 Orang</option>
+                  <option value="5-6 Orang">5 - 6 Orang (Keluarga)</option>
                   <option value="Rombongan (> 6 Orang)">Rombongan (> 6 Orang)</option>
                 </select>
               </div>
@@ -713,8 +433,8 @@
               <div class="summary-title">Ringkasan Reservasi</div>
               
               <div class="summary-row">
-                <span>Tipe Kamar:</span>
-                <strong id="sum-room-name">Deluxe Rinjani View</strong>
+                <span>Akomodasi:</span>
+                <strong id="sum-room-name">Bale Keluarga Homestay</strong>
               </div>
 
               <div class="summary-row">
@@ -723,8 +443,8 @@
               </div>
 
               <div class="summary-row">
-                <span>Subtotal Kamar:</span>
-                <span id="sum-room-cost">Rp 450.000</span>
+                <span>Subtotal Homestay:</span>
+                <span id="sum-room-cost">Rp 350.000</span>
               </div>
 
               <div class="summary-row">
@@ -736,7 +456,7 @@
 
               <div class="summary-total">
                 <div class="summary-total-label">Estimasi Total:</div>
-                <div class="summary-total-price" id="sum-total-cost">Rp 450.000</div>
+                <div class="summary-total-price" id="sum-total-cost">Rp 350.000</div>
               </div>
             </div>
 
@@ -770,56 +490,7 @@
         </div>
 
         <div class="reviews-grid">
-          <!-- Review 1 -->
-          <div class="review-card">
-            <div>
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">
-                "Pilihan terbaik untuk keluarga kami! Hawa Sembalun sangat dingin di malam hari, tapi beruntung sekali water heater di kamar mandinya lancar dan panas mantap. Anak-anak sangat senang memetik stroberi di samping kamar. Tuan rumahnya luar biasa ramah!"
-              </p>
-            </div>
-            <div class="reviewer-profile">
-              <div class="reviewer-avatar">B</div>
-              <div>
-                <div class="reviewer-name">Budi Santoso & Keluarga</div>
-                <div class="reviewer-origin">Surabaya, Jawa Timur</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Review 2 -->
-          <div class="review-card">
-            <div>
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">
-                "Saya dan teman-teman transit di Bale Keluarga sebelum naik ke Rinjani. Tempat tidurnya empuk dan selimutnya tebal banget. Pagi-pagi disuguhkan kopi Sembalun yang aromanya wangi sembari melihat view Rinjani dari teras. Pasti balik lagi ke sini!"
-              </p>
-            </div>
-            <div class="reviewer-profile">
-              <div class="reviewer-avatar">D</div>
-              <div>
-                <div class="reviewer-name">Dimas Wicaksono</div>
-                <div class="reviewer-origin">Jakarta Selatan (Komunitas Pendaki)</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Review 3 -->
-          <div class="review-card">
-            <div>
-              <div class="review-stars">★★★★★</div>
-              <p class="review-text">
-                "Suasana malam hari dengan api unggun dan langit berbintang (milky way) itu magis banget. Ownernya juga membantu kami pesan sewa motor dan trip sunrise Pergasingan. Sangat berkesan untuk honeymoon kami di Lombok."
-              </p>
-            </div>
-            <div class="reviewer-profile">
-              <div class="reviewer-avatar">A</div>
-              <div>
-                <div class="reviewer-name">Anisa & Rizky</div>
-                <div class="reviewer-origin">Bandung, Jawa Barat</div>
-              </div>
-            </div>
-          </div>
+          <!-- Populated dynamically via script.js -->
         </div>
       </div>
     </section>
@@ -839,6 +510,7 @@
           <div class="map-card">
             <!-- Google Maps Embed of Sembalun -->
             <iframe 
+              id="gmapsIframe"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.046187799432!2d116.52445831526462!3d-8.35921869398822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcc4ee8a58a98f1%3A0xe54ef5bb919baec6!2sSembalun%20Lawang%2C%20East%20Lombok%20Regency%2C%20West%20Nusa%20Tenggara!5e0!3m2!1sen!2sid!4v1689000000000!5m2!1sen!2sid" 
               title="Peta Lokasi Bale Keluarga Homestay Sembalun"
               allowfullscreen="" 
@@ -853,8 +525,8 @@
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 17H2a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h20a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2z"></path><path d="M6 17v4"></path><path d="M18 17v4"></path></svg>
               </div>
               <div>
-                <h3 class="route-step-title">Dari Bandara Internasional Lombok (BIL)</h3>
-                <p class="route-step-desc">Jarak tempuh sekitar 2,5 jam via rute Praya - Aikmel - Suela - Sembalun. Kami menyediakan layanan penjemputan shuttle mobil jika dibutuhkan.</p>
+                <h3 class="route-step-title" id="route1Title">Dari Bandara Internasional Lombok (BIL)</h3>
+                <p class="route-step-desc" id="route1Desc">Jarak tempuh sekitar 2,5 jam via rute Praya - Aikmel - Suela - Sembalun. Kami menyediakan layanan penjemputan shuttle mobil jika dibutuhkan.</p>
               </div>
             </div>
 
@@ -863,8 +535,8 @@
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
               </div>
               <div>
-                <h3 class="route-step-title">Dari Kota Mataram / Senggigi</h3>
-                <p class="route-step-desc">Sekitar 2,5 jam perjalanan menyusuri jalan lingkar Lombok Timur yang sejuk dengan aspal mulus.</p>
+                <h3 class="route-step-title" id="route2Title">Dari Kota Mataram / Senggigi</h3>
+                <p class="route-step-desc" id="route2Desc">Sekitar 2,5 jam perjalanan menyusuri jalan lingkar Lombok Timur yang sejuk dengan aspal mulus.</p>
               </div>
             </div>
 
@@ -873,8 +545,8 @@
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"></polygon></svg>
               </div>
               <div>
-                <h3 class="route-step-title">Dari Jalur Pendakian Rinjani</h3>
-                <p class="route-step-desc">Hanya 7 menit dari Rinjani Information Center (RIC) Sembalun. Sangat praktis untuk penitipan tas dan istirahat pasca-trekking.</p>
+                <h3 class="route-step-title" id="route3Title">Dari Jalur Pendakian Rinjani</h3>
+                <p class="route-step-desc" id="route3Desc">Hanya 7 menit dari Rinjani Information Center (RIC) Sembalun. Sangat praktis untuk penitipan tas dan istirahat pasca-trekking.</p>
               </div>
             </div>
           </div>
@@ -894,60 +566,7 @@
         </div>
 
         <div class="faq-accordion">
-          <!-- Item 1 -->
-          <div class="faq-item active">
-            <button class="faq-question">
-              <span>Seberapa dingin suhu di Sembalun dan apakah butuh jaket tebal?</span>
-              <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-answer">
-              Suhu siang hari rata-rata 20°C - 24°C, namun di malam hingga dini hari bisa turun drastis hingga 12°C - 16°C. Sangat disarankan membawa jaket tebal, kaus kaki hangat, dan pakaian hangat terutama untuk anak-anak dan lansia. Di homestay, kami sudah menyiapkan selimut duvet tebal dan air panas melimpah di setiap kamar.
-            </div>
-          </div>
-
-          <!-- Item 2 -->
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>Apakah air panas (water heater) tersedia di setiap kamar mandi?</span>
-              <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-answer">
-              Ya, 100% setiap kamar di Bale Keluarga Homestay dilengkapi dengan pemanas air (water heater) bertekanan stabil yang berfungsi 24 jam penuh tanpa biaya tambahan.
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>Berapa jam check-in dan check-out?</span>
-              <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-answer">
-              Waktu check-in standar dimulai pukul 14:00 WITA dan check-out pukul 12:00 WITA. Namun, kami sangat fleksibel jika kamar sudah siap lebih awal atau jika Anda tiba di pagi hari setelah pendakian, Anda dipersilakan beristirahat di bale santai kami terlebih dahulu.
-            </div>
-          </div>
-
-          <!-- Item 4 -->
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>Apakah bisa memesan makanan halal khas Lombok di homestay?</span>
-              <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-answer">
-              Tentu saja! Sarapan rumahan sudah termasuk dalam harga kamar. Untuk makan siang atau makan malam, Anda bisa memesan hidangan lokal khas seperti Ayam Bakar Taliwang, Sayur Beberuk, Plecing Kangkung Sembalun, dan Ikan Bakar segar dengan konfirmasi kepada staf kami.
-            </div>
-          </div>
-
-          <!-- Item 5 -->
-          <div class="faq-item">
-            <button class="faq-question">
-              <span>Bagaimana kebijakan pembatalan atau perubahan tanggal menginap?</span>
-              <svg class="faq-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-            </button>
-            <div class="faq-answer">
-              Kami memahami rencana pendakian dan liburan bisa terpengaruh cuaca. Perubahan jadwal (reschedule) dapat dilakukan tanpa biaya tambahan dengan konfirmasi minimal 3 hari sebelum tanggal kedatangan selama kamar masih tersedia.
-            </div>
-          </div>
+          <!-- Populated dynamically via script.js -->
         </div>
       </div>
     </section>
@@ -967,7 +586,7 @@
               <span class="brand-subtitle">Homestay Sembalun</span>
             </div>
           </div>
-          <p class="footer-desc">
+          <p class="footer-desc" id="footerDescriptionText">
             Akomodasi keluarga dan pendaki terhangat di lembah Sembalun, Lombok Timur. Menghadirkan kenyamanan modern dengan pesona alam Gunung Rinjani yang megah.
           </p>
         </div>
@@ -976,10 +595,10 @@
           <h4 class="footer-heading">Navigasi</h4>
           <ul class="footer-links">
             <li><a href="#tentang" class="footer-link">Tentang Kami</a></li>
-            <li><a href="#kamar" class="footer-link">Pilihan Kamar</a></li>
             <li><a href="#fasilitas" class="footer-link">Fasilitas Lengkap</a></li>
             <li><a href="#wisata" class="footer-link">Paket Wisata</a></li>
             <li><a href="#galeri" class="footer-link">Galeri Foto</a></li>
+            <li><a href="#reservasi" class="footer-link">Kalkulator Reservasi</a></li>
             <li><a href="admin.html" class="footer-link open-admin-trigger" style="color: var(--color-gold); font-weight: 700;">🔐 Login Admin</a></li>
           </ul>
         </div>
@@ -999,15 +618,15 @@
           <h4 class="footer-heading">Kontak & Reservasi</h4>
           <div class="footer-contact-item">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-            <span>Jl. Pariwisata Sembalun Lawang, Lombok Timur, NTB 83656</span>
+            <span id="footerAddressText">Jl. Pariwisata Sembalun Lawang, Lombok Timur, NTB 83656</span>
           </div>
           <div class="footer-contact-item">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
-            <span>WhatsApp: +62 812-3456-7890</span>
+            <span id="footerPhoneText">WhatsApp: +62 858-0111-2024</span>
           </div>
           <div class="footer-contact-item">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            <span>Buka Reservasi: 24 Jam Setiap Hari</span>
+            <span id="footerOpenHoursText">Buka Reservasi: 24 Jam Setiap Hari</span>
           </div>
         </div>
       </div>
@@ -1035,36 +654,6 @@
     </svg>
     <span>Chat WhatsApp</span>
   </button>
-
-  <!-- ==========================================================================
-       ROOM DETAIL MODAL DIALOG
-       ========================================================================== -->
-  <div class="modal-overlay" id="roomDetailModal">
-    <div class="modal-content">
-      <button class="modal-close-btn" aria-label="Tutup Detail Kamar">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-      </button>
-      <div style="height: 280px; overflow: hidden; position: relative;">
-        <img src="images/room-deluxe.jpg" id="modal-room-img" alt="Detail Kamar" style="width: 100%; height: 100%; object-fit: cover;">
-      </div>
-      <div style="padding: 28px;">
-        <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px;">
-          <h3 id="modal-room-title" style="font-size: 1.5rem; font-weight: 800; color: var(--color-primary-dark);">Deluxe Rinjani View</h3>
-          <span id="modal-room-price" style="font-size: 1.2rem; font-weight: 800; color: var(--color-gold);">Rp 450.000 / malam</span>
-        </div>
-        <p id="modal-room-desc" style="color: var(--color-text-muted); font-size: 0.95rem; line-height: 1.6; margin-bottom: 22px;">
-          Deskripsi kamar akan dimuat di sini...
-        </p>
-        <div style="font-weight: 700; margin-bottom: 12px; font-size: 0.95rem; color: var(--color-primary);">Fasilitas Termasuk dalam Kamar:</div>
-        <ul id="modal-room-amenities" style="list-style: none; margin-bottom: 28px;">
-          <!-- Amenities dynamically populated by JS -->
-        </ul>
-        <button id="modal-btn-book" class="btn-select-room" style="width: 100%; padding: 14px; font-size: 1rem;">
-          Pilih & Hitung Reservasi Kamar Ini
-        </button>
-      </div>
-    </div>
-  </div>
 
   <!-- ==========================================================================
        ADMIN LOGIN MODAL (PASSWORD: 122027)
@@ -1103,6 +692,6 @@
   </div>
 
   <!-- JavaScript -->
-  <script src="script.js?v=3.0"></script>
+  <script src="script.js?v=3.1"></script>
 </body>
 </html>

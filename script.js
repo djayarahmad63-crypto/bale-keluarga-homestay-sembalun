@@ -1,11 +1,10 @@
 /**
  * Bale Keluarga Homestay Sembalun - Interactive Engine
- * Handles Dynamic Content Hydration (from data.json / localStorage / API),
- * Real-time WhatsApp Calculator, Modals, Gallery Filters, and Accordion
+ * Dynamic Content Hydration (Google Sheets / API / LocalStorage),
+ * Real-time WhatsApp Homestay Booking Calculator, Gallery Filters, and Admin Modal
  */
 
 let homestayData = null;
-let roomDatabase = {};
 let addonPrices = {
   'pergasingan': 150000,
   'motorbike': 85000,
@@ -27,7 +26,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Mobile Menu Toggle
   const menuToggle = document.querySelector('.menu-toggle');
   const siteNav = document.querySelector('.site-header');
-  if (menuToggle) {
+  if (menuToggle && siteNav) {
     menuToggle.addEventListener('click', () => {
       siteNav.classList.toggle('mobile-nav-active');
     });
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', async () => {
   // Close mobile nav on link click
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
-      siteNav.classList.remove('mobile-nav-active');
+      if (siteNav) siteNav.classList.remove('mobile-nav-active');
     });
   });
 
@@ -110,12 +109,38 @@ async function loadAndHydrateData() {
     const aboutImg = document.querySelector('.about-main-img');
     if (aboutImg && p.aboutImage) aboutImg.src = p.aboutImage;
 
-    // Contact in Footer
-    const footerPhone = document.querySelector('.footer-contact-item:nth-child(2) span');
+    // About Bullets
+    const b1 = document.getElementById('aboutBullet1');
+    const b2 = document.getElementById('aboutBullet2');
+    const b3 = document.getElementById('aboutBullet3');
+    const b4 = document.getElementById('aboutBullet4');
+    if (b1 && p.aboutBullet1) b1.textContent = p.aboutBullet1;
+    if (b2 && p.aboutBullet2) b2.textContent = p.aboutBullet2;
+    if (b3 && p.aboutBullet3) b3.textContent = p.aboutBullet3;
+    if (b4 && p.aboutBullet4) b4.textContent = p.aboutBullet4;
+
+    // Contact & Info in Footer
+    const footerPhone = document.getElementById('footerPhoneText');
     if (footerPhone && p.phone) footerPhone.textContent = `WhatsApp: ${p.phone}`;
 
-    const footerAddress = document.querySelector('.footer-contact-item:nth-child(1) span');
+    const footerAddress = document.getElementById('footerAddressText');
     if (footerAddress && p.address) footerAddress.textContent = p.address;
+
+    const footerOpenHours = document.getElementById('footerOpenHoursText');
+    if (footerOpenHours && p.openHours) footerOpenHours.textContent = p.openHours;
+
+    const footerDesc = document.getElementById('footerDescriptionText');
+    if (footerDesc && p.footerDesc) footerDesc.textContent = p.footerDesc;
+
+    // Homestay Rate in Calculator
+    const rateEl = document.getElementById('calcHomestayRate');
+    if (rateEl && p.pricePerNight) {
+      rateEl.textContent = `Rp ${Number(p.pricePerNight).toLocaleString('id-ID')}`;
+    }
+    const rateSubEl = document.getElementById('calcHomestaySub');
+    if (rateSubEl && p.priceSubtitle) {
+      rateSubEl.textContent = p.priceSubtitle;
+    }
   }
 
   // Hydrate Hero Section
@@ -126,7 +151,7 @@ async function loadAndHydrateData() {
       heroSec.style.background = `linear-gradient(180deg, rgba(22, 17, 31, 0.65) 0%, rgba(22, 17, 31, 0.82) 100%), url('${h.bgImage}') center/cover no-repeat`;
     }
 
-    const badgeSpan = document.querySelector('.hero-badge span:last-child');
+    const badgeSpan = document.getElementById('heroBadgeText');
     if (badgeSpan && h.badge) {
       badgeSpan.textContent = h.badge.replace(/^[^0-9]*/, '').trim() || '4.9/5 Rating Terverifikasi (140+ Ulasan)';
     }
@@ -139,6 +164,12 @@ async function loadAndHydrateData() {
     const heroDesc = document.querySelector('.hero-description');
     if (heroDesc && h.description) heroDesc.textContent = h.description;
 
+    const cta1 = document.getElementById('heroCtaTextLabel');
+    if (cta1 && h.ctaText) cta1.textContent = h.ctaText;
+
+    const cta2 = document.getElementById('heroCta2TextLabel');
+    if (cta2 && h.cta2Text) cta2.textContent = h.cta2Text;
+
     const hl1 = document.querySelector('.hero-highlights .highlight-item:nth-child(1) .highlight-label');
     if (hl1 && h.highlight1) hl1.textContent = h.highlight1;
 
@@ -147,76 +178,6 @@ async function loadAndHydrateData() {
 
     const hl3 = document.querySelector('.hero-highlights .highlight-item:nth-child(3) .highlight-label');
     if (hl3 && h.highlight3) hl3.textContent = h.highlight3;
-  }
-
-  // Hydrate Rooms
-  if (homestayData.rooms && homestayData.rooms.length > 0) {
-    roomDatabase = {};
-    const roomsGrid = document.querySelector('.rooms-grid');
-    if (roomsGrid) roomsGrid.innerHTML = '';
-
-    const heroRoomSelect = document.getElementById('hero-room-type');
-    const calcRoomSelect = document.getElementById('calc-room');
-    if (heroRoomSelect) heroRoomSelect.innerHTML = '';
-    if (calcRoomSelect) calcRoomSelect.innerHTML = '';
-
-    homestayData.rooms.forEach((room, idx) => {
-      roomDatabase[room.id] = {
-        title: room.title,
-        pricePerNight: Number(room.price),
-        capacity: room.capacity,
-        bed: room.bed,
-        view: room.badge || 'Pemandangan Pegunungan',
-        image: room.image || 'images/hero.jpg',
-        description: room.description,
-        amenities: room.amenities || []
-      };
-
-      // Add to selects
-      const optText = `${room.title} (Rp ${Number(room.price).toLocaleString('id-ID')})`;
-      if (heroRoomSelect) heroRoomSelect.add(new Option(room.title, room.id));
-      if (calcRoomSelect) calcRoomSelect.add(new Option(optText, room.id));
-
-      // Append Room Card
-      if (roomsGrid) {
-        const card = document.createElement('article');
-        card.className = 'room-card';
-        card.id = `cardRoom_${room.id}`;
-        card.innerHTML = `
-          <div class="room-thumb-wrapper">
-            <img src="${room.image || 'images/hero.jpg'}" alt="${room.title}" class="room-thumb" loading="lazy">
-            <span class="room-badge">${room.badge || 'Pilihan Favorit'}</span>
-            <div class="room-price-tag">
-              <span>Rp ${Number(room.price).toLocaleString('id-ID')}</span> / malam
-            </div>
-          </div>
-          <div class="room-body">
-            <h3 class="room-title">${room.title}</h3>
-            <div class="room-meta">
-              <div class="room-meta-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle></svg>
-                ${room.capacity}
-              </div>
-              <div class="room-meta-item">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path></svg>
-                ${room.bed}
-              </div>
-            </div>
-            <p class="room-desc">${room.description}</p>
-            <div class="room-amenities-tags">
-              ${(room.amenities || []).slice(0, 4).map(a => `<span class="amenity-tag">${a}</span>`).join('')}
-            </div>
-            <div class="room-footer">
-              <button class="btn-select-room" data-room="${room.id}">Pilih Kamar Ini</button>
-              <button class="btn-detail-room" data-room="${room.id}" aria-label="Lihat detail">Detail</button>
-            </div>
-          </div>
-        `;
-        roomsGrid.appendChild(card);
-      }
-    });
-
-    bindRoomActionButtons();
   }
 
   // Hydrate Facilities
@@ -258,7 +219,7 @@ async function loadAndHydrateData() {
             <ul class="experience-perks">
               ${(exp.perks || []).map(p => `<li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg> ${p}</li>`).join('')}
             </ul>
-            <a href="#reservasi" class="btn-book-exp">Booking dengan Kamar</a>
+            <a href="#reservasi" class="btn-book-exp">Booking dengan Homestay</a>
           </div>
         `;
         expGrid.appendChild(card);
@@ -313,6 +274,27 @@ async function loadAndHydrateData() {
     }
   }
 
+  // Hydrate Location & Routes
+  if (homestayData.location) {
+    const loc = homestayData.location;
+    const iframe = document.getElementById('gmapsIframe');
+    if (iframe && loc.mapsEmbedUrl) iframe.src = loc.mapsEmbedUrl;
+
+    const r1t = document.getElementById('route1Title');
+    const r1d = document.getElementById('route1Desc');
+    const r2t = document.getElementById('route2Title');
+    const r2d = document.getElementById('route2Desc');
+    const r3t = document.getElementById('route3Title');
+    const r3d = document.getElementById('route3Desc');
+
+    if (r1t && loc.route1Title) r1t.textContent = loc.route1Title;
+    if (r1d && loc.route1Desc) r1d.textContent = loc.route1Desc;
+    if (r2t && loc.route2Title) r2t.textContent = loc.route2Title;
+    if (r2d && loc.route2Desc) r2d.textContent = loc.route2Desc;
+    if (r3t && loc.route3Title) r3t.textContent = loc.route3Title;
+    if (r3d && loc.route3Desc) r3d.textContent = loc.route3Desc;
+  }
+
   // Hydrate FAQs
   if (homestayData.faqs && homestayData.faqs.length > 0) {
     const faqContainer = document.querySelector('.faq-accordion');
@@ -333,6 +315,17 @@ async function loadAndHydrateData() {
     }
   }
 
+  // Floating WhatsApp Action
+  const floatingWa = document.getElementById('floatingWhatsappBtn');
+  if (floatingWa) {
+    floatingWa.onclick = () => {
+      const waNumber = formatWhatsAppNumber(homestayData?.profile?.whatsapp);
+      const msg = encodeURIComponent(`Halo ${homestayData?.profile?.brandName || 'Bale Keluarga Homestay'}, saya ingin menanyakan ketersediaan reservasi homestay Sembalun. Terima kasih!`);
+      window.open(`https://wa.me/${waNumber}?text=${msg}`, '_blank');
+    };
+  }
+}
+
 function formatWhatsAppNumber(num) {
   if (!num) return '6285801112024';
   let clean = num.toString().replace(/[^0-9]/g, '');
@@ -341,22 +334,10 @@ function formatWhatsAppNumber(num) {
   return clean || '6285801112024';
 }
 
-  // Floating WhatsApp Action
-  const floatingWa = document.getElementById('floatingWhatsappBtn');
-  if (floatingWa) {
-    floatingWa.onclick = () => {
-      const waNumber = formatWhatsAppNumber(homestayData?.profile?.whatsapp);
-      const msg = encodeURIComponent(`Halo ${homestayData?.profile?.brandName || 'Bale Keluarga Homestay'}, saya ingin menanyakan ketersediaan kamar dan paket wisata Sembalun. Terima kasih!`);
-      window.open(`https://wa.me/${waNumber}?text=${msg}`, '_blank');
-    };
-  }
-}
-
 // 4. Interactive Booking Calculator & WhatsApp Generator
 function initBookingCalculator() {
   const checkinInput = document.getElementById('calc-checkin');
   const checkoutInput = document.getElementById('calc-checkout');
-  const roomSelect = document.getElementById('calc-room');
   const guestsSelect = document.getElementById('calc-guests');
 
   const summaryRoomName = document.getElementById('sum-room-name');
@@ -408,7 +389,7 @@ function initBookingCalculator() {
   }
 
   function calculateBookingTotal() {
-    if (!checkinInput || !checkoutInput || !roomSelect) return;
+    if (!checkinInput || !checkoutInput) return;
 
     const checkinDate = new Date(checkinInput.value);
     const checkoutDate = new Date(checkoutInput.value);
@@ -416,9 +397,8 @@ function initBookingCalculator() {
     let nights = Math.ceil(Math.abs(checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
     if (nights < 1 || isNaN(nights)) nights = 1;
 
-    const selectedRoomKey = roomSelect.value;
-    const roomData = roomDatabase[selectedRoomKey] || Object.values(roomDatabase)[0] || { title: 'Kamar', pricePerNight: 400000 };
-    const roomCost = roomData.pricePerNight * nights;
+    const pricePerNight = Number(homestayData?.profile?.pricePerNight) || 350000;
+    const homestayCost = pricePerNight * nights;
 
     let addonsCost = 0;
     const selectedAddonNames = [];
@@ -432,11 +412,11 @@ function initBookingCalculator() {
       }
     });
 
-    const totalCost = roomCost + addonsCost;
+    const totalCost = homestayCost + addonsCost;
 
-    if (summaryRoomName) summaryRoomName.textContent = roomData.title;
+    if (summaryRoomName) summaryRoomName.textContent = homestayData?.profile?.brandName ? `${homestayData.profile.brandName} (Satu Rumah)` : 'Bale Keluarga Homestay';
     if (summaryNights) summaryNights.textContent = `${nights} Malam`;
-    if (summaryRoomCost) summaryRoomCost.textContent = formatIDR(roomCost);
+    if (summaryRoomCost) summaryRoomCost.textContent = formatIDR(homestayCost);
     if (summaryAddonsCost) summaryAddonsCost.textContent = formatIDR(addonsCost);
     if (summaryTotalCost) summaryTotalCost.textContent = formatIDR(totalCost);
 
@@ -445,8 +425,8 @@ function initBookingCalculator() {
     const checkoutFormatted = checkoutDate.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
 
     let message = `Halo Pengelola ${homestayData?.profile?.brandName || 'Bale Keluarga Homestay Sembalun'},\n\n`;
-    message += `Saya tertarik untuk melakukan reservasi menginap:\n`;
-    message += `🏡 *Tipe Kamar:* ${roomData.title}\n`;
+    message += `Saya tertarik untuk melakukan reservasi homestay:\n`;
+    message += `🏡 *Paket:* Bale Keluarga Homestay (Satu Rumah Penuh)\n`;
     message += `📅 *Jadwal:* ${checkinFormatted} s/d ${checkoutFormatted} (${nights} Malam)\n`;
     message += `👥 *Jumlah Tamu:* ${guests}\n`;
     
@@ -455,7 +435,7 @@ function initBookingCalculator() {
     }
     
     message += `💰 *Estimasi Total:* ${formatIDR(totalCost)}\n\n`;
-    message += `Apakah pada tanggal tersebut kamar masih tersedia? Terima kasih!`;
+    message += `Apakah pada tanggal tersebut homestay masih tersedia? Terima kasih!`;
 
     const encodedMessage = encodeURIComponent(message);
     const waPhoneNumber = formatWhatsAppNumber(homestayData?.profile?.whatsapp);
@@ -468,7 +448,6 @@ function initBookingCalculator() {
     }
   }
 
-  if (roomSelect) roomSelect.addEventListener('change', calculateBookingTotal);
   if (guestsSelect) guestsSelect.addEventListener('change', calculateBookingTotal);
   document.querySelectorAll('.addon-item-cb').forEach(cb => {
     cb.addEventListener('change', calculateBookingTotal);
@@ -483,12 +462,10 @@ function initBookingCalculator() {
       e.preventDefault();
       const heroIn = document.getElementById('hero-checkin').value;
       const heroOut = document.getElementById('hero-checkout').value;
-      const heroRoom = document.getElementById('hero-room-type').value;
       const heroGuests = document.getElementById('hero-guests').value;
 
       if (checkinInput && heroIn) checkinInput.value = heroIn;
       if (checkoutInput && heroOut) checkoutInput.value = heroOut;
-      if (roomSelect && heroRoom) roomSelect.value = heroRoom;
       if (guestsSelect && heroGuests) guestsSelect.value = heroGuests;
 
       calculateBookingTotal();
@@ -498,100 +475,7 @@ function initBookingCalculator() {
   }
 }
 
-// 5. Room Selection & Detail Modal Handling
-function bindRoomActionButtons() {
-  const roomSelect = document.getElementById('calc-room');
-
-  document.querySelectorAll('.btn-select-room').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const roomKey = e.currentTarget.dataset.room;
-      if (roomSelect && roomKey) {
-        roomSelect.value = roomKey;
-        const calcSec = document.getElementById('reservasi');
-        if (calcSec) {
-          calcSec.scrollIntoView({ behavior: 'smooth' });
-          const event = new Event('change');
-          roomSelect.dispatchEvent(event);
-        }
-      }
-    });
-  });
-
-  // Modal setup
-  const modal = document.getElementById('roomDetailModal');
-  const modalCloseBtn = document.querySelector('.modal-close-btn');
-  const modalImg = document.getElementById('modal-room-img');
-  const modalTitle = document.getElementById('modal-room-title');
-  const modalPrice = document.getElementById('modal-room-price');
-  const modalDesc = document.getElementById('modal-room-desc');
-  const modalAmenities = document.getElementById('modal-room-amenities');
-  const modalBookBtn = document.getElementById('modal-btn-book');
-
-  function openRoomModal(roomKey) {
-    const data = roomDatabase[roomKey];
-    if (!data || !modal) return;
-
-    modalImg.src = data.image;
-    modalImg.alt = data.title;
-    modalTitle.textContent = data.title;
-    modalPrice.textContent = `Rp ${Number(data.pricePerNight).toLocaleString('id-ID')} / malam`;
-    modalDesc.textContent = data.description;
-
-    modalAmenities.innerHTML = '';
-    (data.amenities || []).forEach(item => {
-      const li = document.createElement('li');
-      li.style.display = 'flex';
-      li.style.alignItems = 'center';
-      li.style.gap = '8px';
-      li.style.marginBottom = '8px';
-      li.style.fontSize = '0.92rem';
-      li.innerHTML = `
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1c3b24" stroke-width="2.5"><polyline points="20 6 9 17 4 12"></polyline></svg>
-        <span>${item}</span>
-      `;
-      modalAmenities.appendChild(li);
-    });
-
-    if (modalBookBtn) {
-      modalBookBtn.onclick = () => {
-        closeModal();
-        if (roomSelect) {
-          roomSelect.value = roomKey;
-          const event = new Event('change');
-          roomSelect.dispatchEvent(event);
-        }
-        const calcSection = document.getElementById('reservasi');
-        if (calcSection) calcSection.scrollIntoView({ behavior: 'smooth' });
-      };
-    }
-
-    modal.classList.add('active');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeModal() {
-    if (modal) {
-      modal.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-  }
-
-  document.querySelectorAll('.btn-detail-room').forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      const roomKey = e.currentTarget.dataset.room;
-      openRoomModal(roomKey);
-    });
-  });
-
-  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeModal);
-  if (modal) {
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) closeModal();
-    });
-  }
-}
-
-// 6. Gallery Filters
+// 5. Gallery Filters
 function initGalleryFilters() {
   const filterBtns = document.querySelectorAll('.gallery-filter-btn');
   filterBtns.forEach(btn => {
@@ -611,7 +495,7 @@ function initGalleryFilters() {
   });
 }
 
-// 7. FAQ Accordion
+// 6. FAQ Accordion
 function initFaqAccordion() {
   document.querySelectorAll('.faq-item').forEach(item => {
     const questionBtn = item.querySelector('.faq-question');
@@ -625,7 +509,7 @@ function initFaqAccordion() {
   });
 }
 
-// 8. Admin Login Modal & Navigation (Password: 122027)
+// 7. Admin Login Modal & Navigation (Password: 122027)
 function initAdminLoginModal() {
   const triggers = document.querySelectorAll('.open-admin-trigger, #adminSecretTrigger, #footerAdminTrigger, #navAdminBtn, #mobileNavAdminBtn');
   const modal = document.getElementById('adminLoginModal');

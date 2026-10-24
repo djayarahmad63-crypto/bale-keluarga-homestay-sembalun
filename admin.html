@@ -121,15 +121,10 @@
 
       <button class="nav-item-btn" data-tab="profile">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-        <span>Profil & Kontak</span>
+        <span>Profil & Tarif Homestay</span>
       </button>
 
       <div class="sidebar-section-label">Kelola Konten</div>
-      <button class="nav-item-btn" data-tab="rooms">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-        <span>Pilihan Kamar</span>
-      </button>
-
       <button class="nav-item-btn" data-tab="facilities">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
         <span>Fasilitas Homestay</span>
@@ -148,6 +143,11 @@
       <button class="nav-item-btn" data-tab="reviews">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
         <span>Ulasan Tamu</span>
+      </button>
+
+      <button class="nav-item-btn" data-tab="location">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+        <span>Lokasi & Rute</span>
       </button>
 
       <button class="nav-item-btn" data-tab="faqs">
@@ -212,7 +212,7 @@
       <section class="tab-pane active" id="pane-overview">
         <div class="panel-header">
           <h1 class="panel-title">Selamat Datang di Panel Admin</h1>
-          <p class="panel-subtitle">Sesuaikan seluruh teks, foto, harga kamar, dan kontak Landing Page Bale Keluarga Homestay Sembalun secara langsung.</p>
+          <p class="panel-subtitle">Sesuaikan seluruh teks, foto, tarif homestay, rute jalan, dan kontak Landing Page Bale Keluarga Homestay Sembalun secara langsung.</p>
         </div>
 
         <div class="overview-stats-grid">
@@ -221,8 +221,8 @@
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path></svg>
             </div>
             <div>
-              <div class="stat-number" id="statRoomsCount">3</div>
-              <div class="stat-label">Tipe Kamar Aktif</div>
+              <div class="stat-number" id="statPriceDisplay">Rp 350.000</div>
+              <div class="stat-label">Tarif Homestay / Malam</div>
             </div>
           </div>
 
@@ -261,8 +261,9 @@
           <h3 class="admin-card-title">Aksi Cepat Pengaturan</h3>
           <div style="display: flex; gap: 14px; flex-wrap: wrap;">
             <button class="btn-add-new-item" onclick="switchAdminTab('hero')">Edit Hero & Foto Banner</button>
-            <button class="btn-add-new-item" onclick="switchAdminTab('rooms')" style="background:var(--admin-gold); color:#122116;">Kelola Kamar & Harga</button>
-            <button class="btn-add-new-item" onclick="switchAdminTab('profile')">Ubah Nomor WhatsApp</button>
+            <button class="btn-add-new-item" onclick="switchAdminTab('profile')">Ubah Tarif & Kontak WhatsApp</button>
+            <button class="btn-add-new-item" onclick="switchAdminTab('facilities')" style="background:var(--admin-gold); color:#122116;">Kelola Fasilitas Homestay</button>
+            <button class="btn-add-new-item" onclick="switchAdminTab('experiences')">Atur Paket Wisata</button>
             <a href="index.html" target="_blank" class="btn-secondary" style="display:inline-flex; align-items:center; gap:6px;">Buka Preview Landing Page ↗</a>
           </div>
         </div>
@@ -274,7 +275,7 @@
       <section class="tab-pane" id="pane-hero">
         <div class="panel-header">
           <h1 class="panel-title">Hero Section & Banner Utama</h1>
-          <p class="panel-subtitle">Ubah teks pembuka, slogan pemandangan, dan foto latar belakang panorama yang pertama kali dilihat pengunjung.</p>
+          <p class="panel-subtitle">Ubah teks pembuka, slogan rating, tombol tindakan (CTA), dan foto latar belakang panorama yang pertama kali dilihat pengunjung.</p>
         </div>
 
         <div class="admin-card">
@@ -303,6 +304,17 @@
               <textarea id="heroDescInput" class="admin-textarea"></textarea>
             </div>
           </div>
+
+          <div class="form-row">
+            <div class="form-group-admin">
+              <label class="admin-label">Teks Tombol Utama (CTA 1)</label>
+              <input type="text" id="heroCtaTextInput" class="admin-input" placeholder="contoh: Pesan Homestay Langsung">
+            </div>
+            <div class="form-group-admin">
+              <label class="admin-label">Teks Tombol Kedua (CTA 2)</label>
+              <input type="text" id="heroCta2TextInput" class="admin-input" placeholder="contoh: Lihat Fasilitas">
+            </div>
+          </div>
         </div>
 
         <div class="admin-card">
@@ -323,7 +335,7 @@
               <div style="display:flex; align-items:center; gap:12px; margin-top:6px;">
                 <label class="custom-file-upload">
                   <input type="file" accept="image/*" style="display:none;" onchange="handleFileUpload(event, 'heroBgPreview', 'heroBgCustomInput')">
-                  📁 Unggah Foto Baru dari Komputer
+                  📁 Unggah Foto Baru dari Komputer / HP
                 </label>
                 <span style="font-size:0.8rem; color:var(--admin-text-muted);">atau URL Gambar:</span>
                 <input type="text" id="heroBgCustomInput" class="admin-input" style="flex:1;" placeholder="Path / URL foto" oninput="onCustomUrlInput(this, 'heroBgPreview')">
@@ -354,16 +366,16 @@
       </section>
 
       <!-- ==========================================================================
-           TAB 3: PROFIL & KONTAK
+           TAB 3: PROFIL & TARIF HOMESTAY
            ========================================================================== -->
       <section class="tab-pane" id="pane-profile">
         <div class="panel-header">
-          <h1 class="panel-title">Profil Bisnis & Kontak WhatsApp</h1>
-          <p class="panel-subtitle">Atur nomor WhatsApp untuk reservasi langsung, alamat properti, jam operasional, dan narasi cerita homestay.</p>
+          <h1 class="panel-title">Profil, Tarif & Kontak Homestay</h1>
+          <p class="panel-subtitle">Atur tarif menginap per malam, nomor WhatsApp reservasi langsung, jam operasional, alamat properti, dan narasi cerita homestay.</p>
         </div>
 
         <div class="admin-card">
-          <h3 class="admin-card-title">Identitas & Kontak Resmi</h3>
+          <h3 class="admin-card-title">Identitas & Tarif Sewa Homestay</h3>
           <div class="form-row">
             <div class="form-group-admin">
               <label class="admin-label">Nama Brand Homestay</label>
@@ -372,6 +384,17 @@
             <div class="form-group-admin">
               <label class="admin-label">Subtitle Lokasi</label>
               <input type="text" id="profBrandSubInput" class="admin-input">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group-admin">
+              <label class="admin-label">Tarif Sewa Homestay / Malam (Rp)</label>
+              <input type="number" id="profPriceInput" class="admin-input" placeholder="contoh: 350000">
+            </div>
+            <div class="form-group-admin">
+              <label class="admin-label">Keterangan Tarif (Sub-judul)</label>
+              <input type="text" id="profPriceSubInput" class="admin-input" placeholder="contoh: Sewa 1 Homestay Penuh / Malam">
             </div>
           </div>
 
@@ -403,6 +426,20 @@
               <input type="text" id="profCheckoutInput" class="admin-input">
             </div>
           </div>
+
+          <div class="form-row full">
+            <div class="form-group-admin">
+              <label class="admin-label">Jam Operasional Reservasi (Ditampilkan di Footer)</label>
+              <input type="text" id="profOpenHoursInput" class="admin-input" placeholder="contoh: Buka Reservasi: 24 Jam Setiap Hari">
+            </div>
+          </div>
+
+          <div class="form-row full">
+            <div class="form-group-admin">
+              <label class="admin-label">Deskripsi Singkat di Footer</label>
+              <textarea id="profFooterDescInput" class="admin-textarea" style="min-height:70px;"></textarea>
+            </div>
+          </div>
         </div>
 
         <div class="admin-card">
@@ -432,6 +469,28 @@
             </div>
           </div>
 
+          <h4 style="margin: 18px 0 10px; font-size: 0.95rem; color: #1e293b;">4 Poin Keunggulan (Bullets) Tentang Kami:</h4>
+          <div class="form-row">
+            <div class="form-group-admin">
+              <label class="admin-label">Poin Keunggulan 1</label>
+              <input type="text" id="profBullet1Input" class="admin-input">
+            </div>
+            <div class="form-group-admin">
+              <label class="admin-label">Poin Keunggulan 2</label>
+              <input type="text" id="profBullet2Input" class="admin-input">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group-admin">
+              <label class="admin-label">Poin Keunggulan 3</label>
+              <input type="text" id="profBullet3Input" class="admin-input">
+            </div>
+            <div class="form-group-admin">
+              <label class="admin-label">Poin Keunggulan 4</label>
+              <input type="text" id="profBullet4Input" class="admin-input">
+            </div>
+          </div>
+
           <div class="image-selector-box" style="margin-top:16px;">
             <img src="images/hero.jpg" id="aboutImgPreview" class="img-preview-thumb" alt="Preview Foto Tentang Kami">
             <div class="image-controls">
@@ -455,24 +514,7 @@
       </section>
 
       <!-- ==========================================================================
-           TAB 4: KELOLA KAMAR
-           ========================================================================== -->
-      <section class="tab-pane" id="pane-rooms">
-        <div class="panel-header" style="display:flex; justify-content:space-between; align-items:flex-end;">
-          <div>
-            <h1 class="panel-title">Kelola Pilihan Kamar</h1>
-            <p class="panel-subtitle">Atur tipe kamar, harga per malam, foto kamar, kapasitas tamu, dan fasilitas kamar.</p>
-          </div>
-          <button class="btn-add-new-item" onclick="openRoomModalForAdd()">+ Tambah Kamar Baru</button>
-        </div>
-
-        <div class="dynamic-items-grid" id="adminRoomsList">
-          <!-- Populated dynamically via JS -->
-        </div>
-      </section>
-
-      <!-- ==========================================================================
-           TAB 5: FASILITAS
+           TAB 4: FASILITAS
            ========================================================================== -->
       <section class="tab-pane" id="pane-facilities">
         <div class="panel-header" style="display:flex; justify-content:space-between; align-items:flex-end;">
@@ -489,7 +531,7 @@
       </section>
 
       <!-- ==========================================================================
-           TAB 6: PAKET WISATA
+           TAB 5: PAKET WISATA
            ========================================================================== -->
       <section class="tab-pane" id="pane-experiences">
         <div class="panel-header" style="display:flex; justify-content:space-between; align-items:flex-end;">
@@ -506,13 +548,13 @@
       </section>
 
       <!-- ==========================================================================
-           TAB 7: GALERI FOTO
+           TAB 6: GALERI FOTO
            ========================================================================== -->
       <section class="tab-pane" id="pane-gallery">
         <div class="panel-header" style="display:flex; justify-content:space-between; align-items:flex-end;">
           <div>
             <h1 class="panel-title">Galeri Foto</h1>
-            <p class="panel-subtitle">Kelola foto-foto suasana nyata homestay, kamar, dan pemandangan perbukitan Sembalun.</p>
+            <p class="panel-subtitle">Kelola foto-foto suasana nyata homestay, halaman, dan pemandangan perbukitan Sembalun.</p>
           </div>
           <button class="btn-add-new-item" onclick="openGalleryModalForAdd()">+ Tambah Foto Galeri</button>
         </div>
@@ -523,7 +565,7 @@
       </section>
 
       <!-- ==========================================================================
-           TAB 8: ULASAN TAMU
+           TAB 7: ULASAN TAMU
            ========================================================================== -->
       <section class="tab-pane" id="pane-reviews">
         <div class="panel-header" style="display:flex; justify-content:space-between; align-items:flex-end;">
@@ -536,6 +578,66 @@
 
         <div class="dynamic-items-grid" id="adminReviewsList">
           <!-- Populated dynamically via JS -->
+        </div>
+      </section>
+
+      <!-- ==========================================================================
+           TAB 8: LOKASI & RUTE JALAN
+           ========================================================================== -->
+      <section class="tab-pane" id="pane-location">
+        <div class="panel-header">
+          <h1 class="panel-title">Petunjuk Rute & Peta Lokasi Google Maps</h1>
+          <p class="panel-subtitle">Atur tautan embed peta Google Maps dan 3 petunjuk arah dari bandara, kota, maupun pos pendakian.</p>
+        </div>
+
+        <div class="admin-card">
+          <h3 class="admin-card-title">Tautan Google Maps Embed</h3>
+          <div class="form-row full">
+            <div class="form-group-admin">
+              <label class="admin-label">URL Embed Google Maps (src iframe):</label>
+              <textarea id="locMapsUrlInput" class="admin-textarea" style="min-height:75px;" placeholder="https://www.google.com/maps/embed?..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-card">
+          <h3 class="admin-card-title">3 Langkah Petunjuk Arah / Rute Perjalanan</h3>
+          
+          <div style="background:#f8fafc; padding:14px; border-radius:10px; margin-bottom:14px; border:1px solid #e2e8f0;">
+            <strong style="display:block; margin-bottom:8px; color:#1e293b;">Rute 1 (Bandara Lombok):</strong>
+            <div class="form-group-admin" style="margin-bottom:8px;">
+              <label class="admin-label">Judul Rute 1</label>
+              <input type="text" id="locRoute1TitleInput" class="admin-input">
+            </div>
+            <div class="form-group-admin">
+              <label class="admin-label">Deskripsi Rute 1</label>
+              <textarea id="locRoute1DescInput" class="admin-textarea" style="min-height:60px;"></textarea>
+            </div>
+          </div>
+
+          <div style="background:#f8fafc; padding:14px; border-radius:10px; margin-bottom:14px; border:1px solid #e2e8f0;">
+            <strong style="display:block; margin-bottom:8px; color:#1e293b;">Rute 2 (Mataram / Senggigi):</strong>
+            <div class="form-group-admin" style="margin-bottom:8px;">
+              <label class="admin-label">Judul Rute 2</label>
+              <input type="text" id="locRoute2TitleInput" class="admin-input">
+            </div>
+            <div class="form-group-admin">
+              <label class="admin-label">Deskripsi Rute 2</label>
+              <textarea id="locRoute2DescInput" class="admin-textarea" style="min-height:60px;"></textarea>
+            </div>
+          </div>
+
+          <div style="background:#f8fafc; padding:14px; border-radius:10px; border:1px solid #e2e8f0;">
+            <strong style="display:block; margin-bottom:8px; color:#1e293b;">Rute 3 (Jalur Pendakian Rinjani):</strong>
+            <div class="form-group-admin" style="margin-bottom:8px;">
+              <label class="admin-label">Judul Rute 3</label>
+              <input type="text" id="locRoute3TitleInput" class="admin-input">
+            </div>
+            <div class="form-group-admin">
+              <label class="admin-label">Deskripsi Rute 3</label>
+              <textarea id="locRoute3DescInput" class="admin-textarea" style="min-height:60px;"></textarea>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -557,7 +659,7 @@
       </section>
 
       <!-- ==========================================================================
-           TAB: INTEGRASI DATABASE GOOGLE SPREADSHEET & CLOUDINARY
+           TAB 10: INTEGRASI DATABASE GOOGLE SPREADSHEET & CLOUDINARY
            ========================================================================== -->
       <section class="tab-pane" id="pane-integrations">
         <div class="panel-header">
@@ -664,7 +766,7 @@
       </section>
 
       <!-- ==========================================================================
-           TAB 10: BACKUP & RESET
+           TAB 11: BACKUP & RESET
            ========================================================================== -->
       <section class="tab-pane" id="pane-backup">
         <div class="panel-header">
@@ -675,7 +777,7 @@
         <div class="admin-card">
           <h3 class="admin-card-title">Ekspor & Impor Data JSON</h3>
           <p style="color:var(--admin-text-muted); margin-bottom:18px;">
-            Simpan seluruh konfigurasi teks, harga kamar, dan foto ke dalam file JSON di komputer Anda untuk pencadangan aman.
+            Simpan seluruh konfigurasi teks, tarif homestay, dan foto ke dalam file JSON di komputer Anda untuk pencadangan aman.
           </p>
           <div style="display:flex; gap:14px; flex-wrap:wrap;">
             <button class="btn-add-new-item" onclick="exportDataJson()">
@@ -700,40 +802,24 @@
           </div>
 
           <p style="color:var(--admin-text-muted); font-size:0.9rem; line-height:1.6; margin-bottom:18px;">
-            Agar perubahan data harga, teks, dan foto langsung otomatis tampil untuk seluruh pengunjung di HP dan komputer mereka, Anda dapat memilih salah satu dari 2 metode otomatis di bawah ini:
+            Agar perubahan tarif, teks, rute, dan foto langsung otomatis tampil untuk seluruh pengunjung di HP dan komputer mereka, sistem otomatis mensinkronisasikan ke Google Spreadsheet, Vercel Storage, dan GitHub repositori.
           </p>
 
-          <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:16px; margin-bottom:16px;">
-            <!-- Option A: Vercel KV -->
-            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
-                <strong style="color:#0f172a; font-size:0.95rem;">⭐ Pilihan 1: Vercel KV Database (Resmi & Gratis)</strong>
-              </div>
-              <p style="font-size:0.84rem; color:#64748b; line-height:1.5; margin-bottom:12px;">
-                Aktifkan database cloud gratis Vercel KV di dashboard Vercel Anda. Perubahan akan tersimpan real-time dalam hitungan detik.
-              </p>
-              <a href="https://vercel.com/dashboard" target="_blank" style="display:inline-block; font-size:0.82rem; font-weight:700; color:var(--admin-primary); text-decoration:none;">
-                Buka Vercel Storage ➔
-              </a>
+          <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
+              <strong style="color:#0f172a; font-size:0.95rem;">🚀 Sinkron Otomatis ke GitHub (Akun: rodiman-2024)</strong>
             </div>
-
-            <!-- Option B: GitHub Token -->
-            <div style="background:#f8fafc; border:1px solid #e2e8f0; border-radius:12px; padding:16px;">
-              <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px;">
-                <strong style="color:#0f172a; font-size:0.95rem;">🚀 Pilihan 2: Sinkron Otomatis ke GitHub</strong>
-              </div>
-              <p style="font-size:0.84rem; color:#64748b; line-height:1.5; margin-bottom:10px;">
-                Masukkan GitHub Personal Access Token Anda. Setiap klik tombol Simpan, data langsung otomatis di-commit ke repositori GitHub.
-              </p>
-              <div style="display:flex; gap:8px;">
-                <input type="password" id="adminGhTokenInput" placeholder="Token GitHub (ghp_... atau gho_...)" style="flex:1; padding:8px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:0.82rem; outline:none;">
-                <button type="button" onclick="saveAdminGitHubToken()" style="padding:8px 14px; background:#0f172a; color:#fff; border:none; border-radius:8px; font-size:0.82rem; font-weight:700; cursor:pointer;">
-                  Simpan Token
-                </button>
-              </div>
-              <div id="ghTokenStatusText" style="font-size:0.8rem; margin-top:6px; color:#16a34a; font-weight:600; display:none;">
-                ✓ Token GitHub tersimpan di browser ini.
-              </div>
+            <p style="font-size:0.84rem; color:#64748b; line-height:1.5; margin-bottom:10px;">
+              Masukkan GitHub Personal Access Token Anda. Setiap klik tombol Simpan, data langsung otomatis di-commit ke repositori GitHub <strong>rodiman-2024/balesembalun</strong>.
+            </p>
+            <div style="display:flex; gap:8px;">
+              <input type="password" id="adminGhTokenInput" placeholder="Token GitHub (ghp_... atau gho_...)" style="flex:1; padding:8px 12px; border:1px solid #cbd5e1; border-radius:8px; font-size:0.82rem; outline:none;">
+              <button type="button" onclick="saveAdminGitHubToken()" style="padding:8px 14px; background:#0f172a; color:#fff; border:none; border-radius:8px; font-size:0.82rem; font-weight:700; cursor:pointer;">
+                Simpan Token
+              </button>
+            </div>
+            <div id="ghTokenStatusText" style="font-size:0.8rem; margin-top:6px; color:#16a34a; font-weight:600; display:none;">
+              ✓ Token GitHub tersimpan di browser ini.
             </div>
           </div>
         </div>
@@ -741,7 +827,7 @@
         <div class="admin-card" style="border-left: 4px solid var(--admin-danger);">
           <h3 class="admin-card-title" style="color:var(--admin-danger);">Reset ke Pengaturan Awal Pabrik</h3>
           <p style="color:var(--admin-text-muted); margin-bottom:18px;">
-            Mengembalikan seluruh data teks, kamar, fasilitas, dan foto ke data standar asli Bale Keluarga Homestay Sembalun.
+            Mengembalikan seluruh data teks, fasilitas, paket wisata, rute, dan foto ke data standar asli Bale Keluarga Homestay Sembalun.
           </p>
           <button class="btn-secondary" style="background:#fee2e2; color:#b91c1c; font-weight:700;" onclick="resetToFactoryDefault()">
             ⚠️ Reset ke Data Default

@@ -1,17 +1,25 @@
-﻿{
+{
   "profile": {
     "brandName": "Bale Keluarga",
     "brandSubtitle": "Homestay Sembalun",
     "phone": "+62 858-0111-2024",
     "whatsapp": "6285801112024",
     "address": "Jl. Pariwisata Sembalun Lawang, Lombok Timur, NTB 83656",
+    "pricePerNight": 350000,
+    "priceSubtitle": "Sewa 1 Homestay Penuh / Malam",
     "aboutLead": "\"Bale\" dalam bahasa Sasak bermakna Rumah. Kami menghadirkan tempat pulang yang nyaman bagi setiap musafir dan keluarga yang berkunjung ke Sembalun.",
     "aboutDesc": "Terletak di ketinggian 1.150 meter di atas permukaan laut di lereng megah Gunung Rinjani, Bale Keluarga memadukan kehangatan arsitektur kayu khas Lombok dengan kenyamanan modern. Udara Sembalun yang sejuk hingga 14°C dapat dinikmati dengan tenang berkat kamar mandi berair panas melimpah, selimut duvet hangat, dan seduhan kopi Sembalun segar.",
     "aboutImage": "images/hero.jpg",
     "badgeNumber": "100% Asli",
     "badgeText": "Dikelola Ramah oleh Warga Lokal Sembalun",
+    "aboutBullet1": "Air Panas 24 Jam Tekanan Kuat",
+    "aboutBullet2": "5 Menit ke Bukit Pergasingan",
+    "aboutBullet3": "Kebun Stroberi Petik Sendiri",
+    "aboutBullet4": "Parkir Mobil & Motor Luas",
     "checkinTime": "14:00 WITA",
-    "checkoutTime": "12:00 WITA"
+    "checkoutTime": "12:00 WITA",
+    "openHours": "Buka Reservasi: 24 Jam Setiap Hari",
+    "footerDesc": "Akomodasi keluarga dan pendaki terhangat di lembah Sembalun, Lombok Timur. Menghadirkan kenyamanan modern dengan pesona alam Gunung Rinjani yang megah."
   },
   "hero": {
     "badge": "4.9/5 Rating Terverifikasi (140+ Ulasan)",
@@ -19,68 +27,21 @@
     "highlightWord": "Kaki Gunung Rinjani",
     "description": "Nikmati sejuknya alam Sembalun dengan kenyamanan kamar hangat berair panas, balkon berpanorama gunung megah, kebun stroberi petik sendiri, dan keramahan asli suku Sasak.",
     "bgImage": "https://res.cloudinary.com/lsxj03eg/image/upload/v1792849208/bale_keluarga/zo97hebxji78ok5wireg.png",
+    "ctaText": "Pesan Homestay Langsung",
+    "cta2Text": "Lihat Fasilitas",
     "highlight1": "Water Heater 24 Jam",
     "highlight2": "View 360° Rinjani & Pergasingan",
     "highlight3": "Sarapan & Kopi Sembalun"
   },
-  "rooms": [
-    {
-      "id": "deluxe",
-      "title": "Deluxe Rinjani View Room",
-      "badge": "Best Mountain View",
-      "price": 450000,
-      "capacity": "2 Tamu (+ 1 Anak)",
-      "bed": "1 King Bed Premium",
-      "description": "Jendela panorama kaca lebar menghadap puncak Gunung Rinjani. Nikmati pemandangan matahari terbit langsung dari ranjang empuk Anda.",
-      "image": "images/room-deluxe.jpg",
-      "amenities": [
-        "Water Heater 24 Jam (Ariston)",
-        "Balkon / Teras Menghadap Rinjani",
-        "Sarapan Lezat 2 Porsi Termasuk",
-        "Teko Listrik, Kopi Sembalun & Teh Lokal",
-        "Koneksi Wi-Fi Cepat (Fiber)",
-        "Perlengkapan Mandi & Handuk Hangat",
-        "Meja Kerja & Kursi Santai Kayu Sasak"
-      ]
-    },
-    {
-      "id": "family",
-      "title": "Family Suite Bale Room",
-      "badge": "Favorit Keluarga",
-      "price": 750000,
-      "capacity": "4 - 6 Tamu",
-      "bed": "2 Queen Beds Nyaman",
-      "description": "Ruangan super luas dengan langit-langit tinggi kayu Sasak. Ideal untuk momen kumpul hangat keluarga atau rombongan pendakian.",
-      "image": "images/room-family.jpg",
-      "amenities": [
-        "2 Queen Beds dengan Sprei & Selimut Ekstra Hangat",
-        "Kamar Mandi Luas + Water Heater 24 Jam",
-        "Sarapan Keluarga untuk 4 Orang",
-        "Dispenser Air Galon di Dalam Kamar",
-        "Area Kumpul & Meja Santai Keluarga",
-        "Akses Langsung ke Kebun Stroberi",
-        "Wi-Fi Fiber Cepat untuk Semua Tamu"
-      ]
-    },
-    {
-      "id": "standard",
-      "title": "Standard Cozy Room",
-      "badge": "Best Value",
-      "price": 300000,
-      "capacity": "2 Tamu",
-      "bed": "1 Queen Bed / Twin Bed",
-      "description": "Kenyamanan esensial yang bersih, hangat, dan higienis. Pilihan favorit backpacker dan pendaki yang mencari transit berkualitas tinggi.",
-      "image": "images/hero.jpg",
-      "amenities": [
-        "Kamar Mandi Dalam + Water Heater",
-        "Queen Bed dengan Selimut Tebal",
-        "Sarapan Pagi Hangat untuk 2 Orang",
-        "Wi-Fi Cepat & Spot Colokan Banyak",
-        "Penitipan Tas/Carrier Pendakian Gratis",
-        "Teh/Kopi Sembalun Selamat Datang"
-      ]
-    }
-  ],
+  "location": {
+    "mapsEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3946.046187799432!2d116.52445831526462!3d-8.35921869398822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dcc4ee8a58a98f1%3A0xe54ef5bb919baec6!2sSembalun%20Lawang%2C%20East%20Lombok%20Regency%2C%20West%20Nusa%20Tenggara!5e0!3m2!1sen!2sid!4v1689000000000!5m2!1sen!2sid",
+    "route1Title": "Dari Bandara Internasional Lombok (BIL)",
+    "route1Desc": "Jarak tempuh sekitar 2,5 jam via rute Praya - Aikmel - Suela - Sembalun. Kami menyediakan layanan penjemputan shuttle mobil jika dibutuhkan.",
+    "route2Title": "Dari Kota Mataram / Senggigi",
+    "route2Desc": "Sekitar 2,5 jam perjalanan menyusuri jalan lingkar Lombok Timur yang sejuk dengan aspal mulus.",
+    "route3Title": "Dari Jalur Pendakian Rinjani",
+    "route3Desc": "Hanya 7 menit dari Rinjani Information Center (RIC) Sembalun. Sangat praktis untuk penitipan tas dan istirahat pasca-trekking."
+  },
   "facilities": [
     {
       "id": "f1",
