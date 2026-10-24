@@ -147,39 +147,42 @@ button, input, select, textarea {
    ========================================================================== */
 .site-header {
   position: fixed;
-  top: 14px;
+  top: 18px;
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 0 16px;
+  padding: 0 20px;
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
-  background: transparent;
+  background: transparent !important;
   pointer-events: none;
 }
 
+.site-header .nav-container,
 .nav-container {
   pointer-events: auto;
-  max-width: 1120px;
+  max-width: 1080px;
+  width: 100%;
   margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 18px;
-  background: rgba(22, 17, 31, 0.62);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 10px 24px;
+  background: rgba(22, 17, 31, 0.78);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1.5px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.35);
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  box-sizing: border-box;
 }
 
 .site-header.scrolled .nav-container {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(147, 39, 143, 0.12);
-  box-shadow: 0 12px 35px rgba(22, 17, 31, 0.12);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1.5px solid rgba(147, 39, 143, 0.18);
+  box-shadow: 0 16px 45px rgba(22, 17, 31, 0.14);
 }
 
 .brand-logo {
