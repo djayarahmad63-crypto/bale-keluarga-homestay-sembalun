@@ -1561,7 +1561,7 @@ function saveAdminGitHubToken() {
 }
 
 async function commitDataToGitHubDirect(token, data) {
-  const repo = 'djayarahmad63-crypto/bale-keluarga-homestay';
+  const repo = 'rodiman-2024/balesembalun';
   try {
     // 1. Get SHA
     const getRes = await fetch(`https://api.github.com/repos/${repo}/contents/data.json`, {

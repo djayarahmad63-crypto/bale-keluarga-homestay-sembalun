@@ -124,7 +124,7 @@ module.exports = async function handler(req, res) {
     // B. Save to GitHub via GITHUB_TOKEN if configured
     if (ghToken) {
       try {
-        const repo = 'djayarahmad63-crypto/bale-keluarga-homestay';
+        const repo = 'rodiman-2024/balesembalun';
         const getSha = await fetch(`https://api.github.com/repos/${repo}/contents/data.json`, {
           headers: {
             Authorization: `token ${ghToken}`,
